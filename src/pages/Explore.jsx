@@ -8,13 +8,21 @@ import SearchItem from "../component/SearchItem";
 const Explore = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getArticles().then((data) => setSearchResults(data));
+    getArticles().then((data) => {
+      setSearchResults(data);
+      setIsLoading(false);
+    });
   }, []);
 
   const handleSearch = (searchQuery) => {
-    getArticles(searchQuery).then((data) => setSearchResults(data));
+    setIsLoading(true);
+    getArticles(searchQuery).then((data) => {
+      setSearchResults(data);
+      setIsLoading(false);
+    });
     setQuery(searchQuery);
   };
 
@@ -22,7 +30,7 @@ const Explore = () => {
     <>
       <Navbar />
       <SearchItem onSearch={handleSearch} />
-      {query !== "" && <Card articles={searchResults} />}
+      {query !== "" && <Card articles={searchResults} isLoading={isLoading} />}
       <Footer />
     </>
   );

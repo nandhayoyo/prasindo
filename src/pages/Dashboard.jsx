@@ -7,16 +7,24 @@ import getArticles from "../service/api";
 
 const Dashboard = () => {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    getArticles(9).then((data) => setArticles(data));
-  }, []);
+    useEffect(() => {
+      getArticles(9)
+        .then((data) => {
+          setArticles(data);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }, []);
+
 
   return (
     <>
       <Navbar />
       <Hero />
-      <Card articles={articles} />
+      <Card articles={articles} isLoading={isLoading} />
       <Footer />
     </>
   );

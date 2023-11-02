@@ -1,7 +1,9 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const apiKey = "FGGRmhLXG014oRt12XzCvDfiuJBBS4oD";
 const apiUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+const RATE_LIMIT_QUOTA = 429; 
 
 async function getArticles(query, limit = 9) {
   try {
@@ -19,7 +21,11 @@ async function getArticles(query, limit = 9) {
       return articles;
     }
   } catch (error) {
-    console.error("Error fetching articles:", error);
+    if (error.response && error.response.status === RATE_LIMIT_QUOTA) {
+      toast.error("Rate limit quota exceeded. Please try again later.");
+    } else {
+      toast.error("Error fetching articles:", error);
+    }
     return [];
   }
 }
