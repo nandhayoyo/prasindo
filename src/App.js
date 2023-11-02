@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Router>
-        <Toaster/>
+        <Toaster position="bottom-right" reverseOrder={false} />{" "}
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/team" element={<Team />} />

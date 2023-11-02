@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
-import wait_img from "../assets/explore_img.png";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const SearchItem = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {
-    onSearch(query);
+    if (query.trim() === "") {
+      // Periksa apakah query kosong
+      toast.error("Field harus diisi!"); // Tampilkan pesan toast error
+    } else {
+      onSearch(query);
+    }
   };
 
   return (
@@ -33,7 +38,7 @@ const SearchItem = ({ onSearch }) => {
               type="button"
               className="px-8 py-3 m-2 text-lg font-semibold rounded-xl dark:bg-gray-800 bg-gray-800 text-gray-50 dark:text-gray-50"
               onClick={handleSearch}
-              disabled={!query}
+            //   disabled={!query}
             >
               Search
             </button>
