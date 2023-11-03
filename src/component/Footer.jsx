@@ -6,12 +6,12 @@ const Footer = () => {
     <>
       <footer
         className="footer  items-center justify-center p-4 text-neutral-content bg-violet-400"
-        style={{
-          position: "fixed",
-          bottom: 0,
-          width: "100%",
-          display: "flex",
-        }}
+        // style={{
+        //   position: "fixed",
+        //   bottom: 0,
+        //   width: "100%",
+        //   display: "flex",
+        // }}
       >
         <aside className="items-center grid-flow-col">
           <img className="h-8 w-auto" src={nyctimes_img} alt="logo" />
