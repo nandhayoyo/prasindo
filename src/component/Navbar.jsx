@@ -5,7 +5,6 @@ import nyctimes_img from "../assets/logo_nyc.png"
 
 const navigation = [
   { name: "Dashboard", href: "/", current: false },
-  // { name: "Team", href: "/team", current: false },
   { name: "Explore", href: "/explore", current: false },
 ];
 

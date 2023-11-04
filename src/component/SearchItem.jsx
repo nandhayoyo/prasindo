@@ -37,7 +37,6 @@ const SearchItem = ({ onSearch }) => {
               type="button"
               className="px-8 py-3 m-2 text-lg font-semibold rounded-xl dark:bg-gray-800 bg-gray-800 text-gray-50 dark:text-gray-50"
               onClick={handleSearch}
-              //   disabled={!query}
             >
               Search
             </button>
