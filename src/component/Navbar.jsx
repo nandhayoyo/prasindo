@@ -5,7 +5,7 @@ import nyctimes_img from "../assets/logo_nyc.png"
 
 const navigation = [
   { name: "Dashboard", href: "/", current: false },
-  { name: "Team", href: "/team", current: false },
+  // { name: "Team", href: "/team", current: false },
   { name: "Explore", href: "/explore", current: false },
 ];
 
@@ -63,8 +63,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden px-2">
-            <div className="space-y-1 px-2 pb-3 pt-2 bg-violet-300 rounded-xl">
+          <Disclosure.Panel className="sm:hidden p-2">
+            <div className="space-y-1 px-2  pt-2 bg-violet-300 rounded-xl">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
